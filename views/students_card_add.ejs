@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title><%= title %></title>
+  		<meta charset="utf-8">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<br>
+		<div class="container">
+			<br>
+			<span class="h1"><%= title%></span>
+			<br>
+			<form action="/save-student_card" method="POST">
+				<div class="form-group">
+					<br>
+					<select name="take__book" class="form-control">
+						<option id="0"> Please choose a author </option>
+						<% student_card.map(item=> { %>
+						 <option id="<%= item.id%>"> <%= item.id %> <%= item.name %> </option>
+						<% }) %>
+					<select>
+
+				</div>
+				<div class="form-group">
+					<label for="surname" class="h4">Name of publishing:</label>
+					<br>
+					<select name="staff__id" class="form-control">
+						<option id="0"> Please choose a publish </option>
+						<% student_card.map(item=> { %>
+						 <option id="<%= item.id%>">  <%= item.card__id %> <%= item.staff__name %> <%= item.surname %> </option>
+						<% }) %>
+					<select>
+
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</body>
+</html>

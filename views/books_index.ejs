@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title><%= title %></title>
+  		<meta charset="utf-8">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="style.css">
+		  <style>
+			.add_btn{
+			  width: 250px;
+			}
+			.previous {
+				text-decoration: none;
+				display: inline-block;
+				padding: 8px 16px;
+			}
+			.previous:hover {
+				text-decoration: none;
+				background-color: #1919e6;
+				color: black;
+			}
+			.previous {
+				background-color: #0000ff;
+				color: black;
+				transition: all .5s;
+			}
+		  </style>
+	</head>
+	<body>
+		<a href="/" class="previous">&laquo; Previous</a>
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col-9">
+					<span class="h1"><%= title%></span>
+				</div>
+				<div class="col-2">
+					<a href="/add-book" class="add_btn btn btn-lg btn-primary">Add Book</a><br>
+				</div>
+			</div>
+			<br>
+			<table class="table table-dark table-striped">
+				<thead>
+					<tr>
+						<th>Name of book</th>
+						<th>Author Name</th>
+						<th>Author Surname</th>
+						<th>Publisher</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% students.forEach(function(card){ %>
+						<tr>
+							<td><%= card.name %></td>
+							<td><%= card.a__name %></td>
+							<td><%= card.surname %></td>
+							<td><%= card.p__name %></td>
+							<td>
+								<a href="edit-book/<%= card.id %>" class="btn btn-sm btn-primary">Edit</a>
+								<a href="delete-book/<%= card.id %>" class="btn btn-sm btn-danger">Delete</a>
+							</td>
+						</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
